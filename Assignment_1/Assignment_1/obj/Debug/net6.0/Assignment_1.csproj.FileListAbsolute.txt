@@ -1,0 +1,15 @@
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\obj\Debug\net6.0\Assignment_1.csproj.AssemblyReference.cache
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\obj\Debug\net6.0\Assignment_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\obj\Debug\net6.0\Assignment_1.AssemblyInfoInputs.cache
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\obj\Debug\net6.0\Assignment_1.AssemblyInfo.cs
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\obj\Debug\net6.0\Assignment_1.csproj.CoreCompileInputs.cache
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\bin\Debug\net6.0\Assignment_1.exe
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\bin\Debug\net6.0\Assignment_1.deps.json
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\bin\Debug\net6.0\Assignment_1.runtimeconfig.json
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\bin\Debug\net6.0\Assignment_1.dll
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\bin\Debug\net6.0\Assignment_1.pdb
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\obj\Debug\net6.0\Assignment_1.dll
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\obj\Debug\net6.0\refint\Assignment_1.dll
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\obj\Debug\net6.0\Assignment_1.pdb
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\obj\Debug\net6.0\Assignment_1.genruntimeconfig.cache
+C:\Users\Nguye\Documents\GitHub\PRN_Assignment_1\Assignment_1\Assignment_1\obj\Debug\net6.0\ref\Assignment_1.dll
