@@ -10,6 +10,6 @@ public interface InterfaceBank
 {
     void CreateBank();
     void ShowListBank();
-    void ShowListCustomerBank();
+    void ShowListCustomerInBank(int bankId);
     void InserIntoBank(int bankId, int CustomerId);
 }

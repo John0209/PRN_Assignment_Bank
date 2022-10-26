@@ -9,12 +9,12 @@ using Assignment_1.ObjectData.Transaction;
 public class Account
 {
     private int _Account_Id;
-    private int _Account_Money;
+    private double _Account_Money;
     private List<Transaction> _TransactionsList;
 
     public int Account_Id { get;set; }
-    public int Account_Money { get;set; }
-    public List<Transaction> TransactionsList { get; set; }
+    public double Account_Money { get;set; }
+    public List<Transaction> Transactions_List { get; set; }
 
    
     public Account()
@@ -27,10 +27,26 @@ public class Account
         Account_Money = account_Money;
     }
 
-    public Account(int account_Id, int account_Money, List<Transaction> transactionsList)
+    public Account(int account_Id, double account_Money, List<Transaction> transactionsList)
     {
         Account_Id = account_Id;
         Account_Money = account_Money;
-        TransactionsList = transactionsList;
+        Transactions_List = transactionsList;
     }
+    public void ShowTransactionList()
+    {
+        if (Transactions_List != null) { 
+        Console.WriteLine($"Transaction: ");
+        foreach (Transaction t in Transactions_List)
+        {
+            Console.WriteLine(" + " + t.DisplayTransaction());
+        }
+        }//end If Transaction list not null
+    }
+
+    //Show
+    public virtual string DisplayAccountId()
+   => $"Id: {Account_Id}";
+    public virtual string DisplayAccount()
+   => $"Id: {Account_Id},Money: {Account_Money}";
 }

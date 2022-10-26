@@ -9,5 +9,8 @@ namespace Assignment_1.Interface.Customer;
 public interface InterfaceCustomer
 {
     void GetCustomer();
-    void ShowListCustomer();
+    void ShowListCustomer(int num);
+    void ShowListAccountInCustomer(int customerId);
+    void ShowListCustomerHaveTransaction();
+    void InserIntoCustomer(int accountId, int customerId);
 }

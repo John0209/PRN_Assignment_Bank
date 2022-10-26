@@ -29,6 +29,7 @@ public class FunctionBank
             }
         }
     }
+
     //Get Id Bank
     public Bank GetById(int BankId,List<Bank> listBank)
     {
@@ -38,10 +39,29 @@ public class FunctionBank
         }
         return bank;
     }
+
     //Add New BAnk
-    public List<Bank> AddNewBank(Bank bank,List<Bank> listBank)
+    public List<Bank> AddNewBank(List<Bank> listBank)
     {
-       Bank pro=GetById(bank.Bank_Id,listBank);
+        //declace field
+        int Bank_Id;
+        String Bank_Name;
+        String Bank_Address;
+
+        //Enter Field
+        Console.Write("Enter Bank Id:");
+        Bank_Id = int.Parse(Console.ReadLine());
+        Console.Write("Enter Bank Name:");
+        Bank_Name = Console.ReadLine();
+        Console.Write("Enter Bank Address:");
+        Bank_Address = Console.ReadLine();
+
+        //Add new Bank
+        Bank bank = new Bank(Bank_Id, Bank_Name, Bank_Address);
+
+        //Get by Id
+        Bank pro=GetById(Bank_Id,listBank);
+
         if (pro == null)
         {
             if(listBank==null){
@@ -55,6 +75,7 @@ public class FunctionBank
         }
         return listBank;
     }
+
     //Customer Into Bank
     public List<Bank> IntoBank(int BankId, int CustomerId,List<Customer> listC, List<Bank> listB)
     {
@@ -69,9 +90,9 @@ public class FunctionBank
                 //Get Infor Customer Insert Into Bank
                 for (int y = 0; y < listC.Count; y++)
                 {
-                    if (CustomerId == listC[i].Customer_Id)
+                    if (CustomerId == listC[y].Customer_Id)
                     {
-                        listB[i].Bank_List_Customer.Add(listC[i]);
+                        listB[i].Bank_List_Customer.Add(listC[y]);
                     }
                 }
             }
