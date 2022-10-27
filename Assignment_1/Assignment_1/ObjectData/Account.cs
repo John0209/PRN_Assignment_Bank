@@ -36,7 +36,6 @@ public class Account
     public void ShowTransactionList()
     {
         if (Transactions_List != null) { 
-        Console.WriteLine($"Transaction: ");
         foreach (Transaction t in Transactions_List)
         {
             Console.WriteLine(" + " + t.DisplayTransaction());
@@ -46,7 +45,7 @@ public class Account
 
     //Show
     public virtual string DisplayAccountId()
-   => $"Id: {Account_Id}";
+   => $"<- Account -> Id: {Account_Id}";
     public virtual string DisplayAccount()
-   => $"Id: {Account_Id},Money: {Account_Money}";
+   => $"<- Account -> Id: {Account_Id},Money: {Account_Money}";
 }

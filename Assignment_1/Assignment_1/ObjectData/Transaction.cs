@@ -30,5 +30,5 @@ public class Transaction
         Transaction_IsActive = transaction_IsActive;
     }
     public virtual string DisplayTransaction()
-    => $"Id: {Transaction_Id},Date Transaction: {Transaction_DateOnly}, Money Transaction: {Transaction_Money}, Type Transaction: {Transaction_IsActive}";
+    => $"<- Transaction -> Id: {Transaction_Id},Date Transaction: {Transaction_DateOnly}, Money Transaction: {Transaction_Money}, Type Transaction: {Transaction_IsActive}";
 }

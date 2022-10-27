@@ -15,10 +15,14 @@ using Assignment_1.ObjectData.Customer;
 using Assignment_1.ObjectData.Transaction;
 using System;
 using System.Collections.Generic;
+using System.Text;
+
 class Program
 {
+    
     public static void Main(string[] args)
     {
+        Console.OutputEncoding = Encoding.UTF8;
         Content cx = new Content();
         cx.GetCustomer();
         cx.GetListAccount();
@@ -83,7 +87,7 @@ class Program
                     cx.InserIntoCustomer(accountId, customerId);
 
                     //Show List Bank New Insert Customer
-                    cx.ShowListAccountInCustomer(customerId);
+                    cx.ShowListAccountInCustomer(customerId,0);
 
                     // Back Sub Menu
                     goto SubCase1;
@@ -100,7 +104,7 @@ class Program
                     cx.PrintInformationCustomer(idCus);
 
                     //Show Customer
-                    cx.ShowListAccountInCustomer(idCus);
+                    cx.ShowListAccountInCustomer(idCus,0);
                     break;
             case 3:
                     cx.ShowListAccount(1);
@@ -120,15 +124,24 @@ class Program
                     break;
             case 4:
                     //Show List Customer Have Account Implement Transaction
-                    cx.ShowListCustomerHaveTransaction();
+                    cx.ShowListCustomerHaveTransaction(0);
                 break;
             case 5:
                     //Show List Customer Have Account Largest Money At Bank
-                    cx.ShowCustomerHaveLargestMoney();
+                    cx.ShowListCustomerHaveLargestMoney();
                 break;
             case 6:
+                    //Do Sum Money
+                    cx.SortAscendingSumMoney();
+
+                    //Show List Sort Customer Ascending Sum Money
+                    cx.ShowListSortAscendingCustomerSumMoney();
                 break;
             case 7:
+                    cx.LargestTransaction();
+                    //Show List Customer Have Largest Transaction
+                    cx.ShowListCustomerHaveTransaction(1);
+                        
                 break;
         }
             if (choiceMenu == 0)
@@ -148,7 +161,7 @@ class Program
         List<Customer> ListCustomer;
         List<Account> ListAccount;
         List<Transaction> ListTransaction;
-
+        int idTransaction = 1;
         //Add List
         public void CreateBank()
         {
@@ -158,8 +171,8 @@ class Program
         //Add List
         public void CreateTransaction()
         {
-            ListTransaction = FunctionTransaction.Instance.AddNewTransaction(ListTransaction);
-
+            ListTransaction = FunctionTransaction.Instance.AddNewTransaction(ListTransaction,idTransaction);
+            idTransaction++;
         }
 
         //Choice List Menu
@@ -230,7 +243,7 @@ class Program
         }
 
         // Show List Customer Have Account
-        public void ShowListAccountInCustomer(int customerId)
+        public void ShowListAccountInCustomer(int customerId,int i)
         {
             Console.WriteLine(" ======== List Customer ========");
             foreach (Customer c in ListCustomer)
@@ -239,7 +252,7 @@ class Program
                 {
                     Console.WriteLine(c.DisplayCustomer());
                     c.ShowBankList();
-                    c.ShowAccountList(0);
+                    c.ShowAccountList(i);
                 }
             }
         }
@@ -279,8 +292,8 @@ class Program
             }
         }
 
-        //Show List Customer Have Transaction
-        public void ShowListCustomerHaveTransaction()
+        //Show List Customer Account Have Transaction
+        public void ShowListCustomerHaveTransaction(int i)
         {
             Console.WriteLine(" ======== List Customer ========");
             foreach (Customer c in ListCustomer)
@@ -288,19 +301,40 @@ class Program
                 Console.WriteLine(c.DisplayCustomer());
                 if (c.List_Account_Customer != null)
                 {
-                    c.ShowAccountHaveTransactionInCustomer();
+                    c.ShowAccountHaveTransactionInCustomer(i);
+                    if (i == 1)
+                        {
+                            break;
+                        }
+                    Console.WriteLine("( --------------------------- )");
                 }
             }
         }
-        
-        //Show Customer Have Largest Money Account
-        public void ShowCustomerHaveLargestMoney()
+
+        //Show Customer Account Have Largest Money 
+        public void ShowListCustomerHaveLargestMoney()
         {
             Console.WriteLine(" ======== List Account Have Largest Money At Bank ========");
             foreach (Bank b in ListBank)
             {
                     Console.WriteLine(b.DisplayBank());
                     b.ShowAccountLargestMoney();
+                Console.WriteLine(    "( --------------------------- )"     );
+            }
+        }
+
+        //Show Sort List Customer Ascending Sum Money
+        public void ShowListSortAscendingCustomerSumMoney()
+        {
+            Console.WriteLine(" ======== List Sort Customer Ascending Sum Money ========");
+
+            foreach (Customer b in ListCustomer)
+            {
+                PrintInformationCustomer(b.Customer_Id);
+                Console.WriteLine(b.DisplayCustomerSumMoney());
+                b.ShowBankList();
+                b.ShowAccountList(0);
+                Console.WriteLine("( --------------------------- )");
             }
         }
 
@@ -346,12 +380,20 @@ class Program
             ListAccount = FunctionAccount.Instance.TransactionToAccount(idAccount, idTransaction, ListTransaction,ListAccount) ;
         }
 
-        //Largest Account Money
-        public void LargestAccountMoney()
+        //Sort Customer Ascending Sum Money
+        public void SortAscendingSumMoney()
         {
-            ListAccount=FunctionAccount.Instance.SortMoneyLargest(ListAccount);
+            //Do Sum Money
+           FunctionCustomer.Instance.SumMoney(ListCustomer);
+
+            //Sort Ascending
+            ListCustomer = FunctionCustomer.Instance.SortCustomerAscendingSumMoney(ListCustomer);
         }
 
-        //
+        //Customer Largest Transaction
+        public void LargestTransaction()
+        {
+            ListCustomer = FunctionCustomer.Instance.CustomerHaveTransactionLargest(ListCustomer);
+        }
     }
 }

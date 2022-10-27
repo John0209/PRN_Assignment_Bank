@@ -10,6 +10,7 @@ using Assignment_1.ObjectData.Bank;
 using Assignment_1.ObjectData.Transaction;
 public class FunctionTransaction
 {
+    
     private static FunctionTransaction intance = null;
     private static readonly object instanceLock= new object();
     private FunctionTransaction() { }
@@ -40,7 +41,7 @@ public class FunctionTransaction
     }
 
     //Add List Transaction
-    public List<Transaction> AddNewTransaction(List<Transaction> listT)
+    public List<Transaction> AddNewTransaction(List<Transaction> listT, int idTran)
     {
         //declace field
         int Transaction_Id;
@@ -49,13 +50,12 @@ public class FunctionTransaction
         string Transaction_Type;
 
         //Enter Field
-        Console.Write("Enter Transaction Id:");
-        Transaction_Id = int.Parse(Console.ReadLine());
+        Transaction_Id = idTran;
         Console.Write("Enter Transaction Date (dd/MM/yyyy):");
         Transaction_Date =Console.ReadLine();
         Console.Write("Enter Transaction Money:");
         Transaction_Money = double.Parse(Console.ReadLine());
-        Console.Write("Enter Transaction Type (W: Rút, D: Gửi):");
+        Console.Write("Enter Transaction Type (W: withdraw, D: deposit):");
         Transaction_Type = Console.ReadLine();
 
         //Add new Bank
